@@ -8,5 +8,9 @@ const btn = document.querySelector(".close-modal");
 const btnsOpenModal = document.querySelectorAll(".show-modal");
 
 for (let i = 0; i < btnsOpenModal.length; i++) {
-  console.log(btnsOpenModal[i].textContent);
+  btnsOpenModal[i].addEventListener("click", function () {
+    // .classList.remove = retirer une classe séléctionner à un élément ( sans point devant)
+    modal.classList.remove("hidden");
+    overlay.classList.remove("hidden");
+  });
 }
