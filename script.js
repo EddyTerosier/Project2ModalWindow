@@ -2,19 +2,23 @@
 
 const modal = document.querySelector(".modal");
 const overlay = document.querySelector(".overlay");
-const btn = document.querySelector(".close-modal");
+const btnCloseModal = document.querySelector(".close-modal");
 
 // QUERYSELECTORALL pour selectionner plusieurs éléments qui ont la meme classe
 const btnsOpenModal = document.querySelectorAll(".show-modal");
 
-for (let i = 0; i < btnsOpenModal.length; i++) {
-  btnsOpenModal[i].addEventListener("click", function () {
-    // .classList.remove = retirer une classe séléctionner à un élément ( sans point devant)
-    modal.classList.remove("hidden");
-    overlay.classList.remove("hidden");
-  });
+const openModal = function () {
+// .classList.remove = retirer une classe séléctionner à un élément ( sans point devant)
+  modal.classList.remove("hidden");
+  overlay.classList.remove("hidden");
 }
-  btn.addEventListener("click", function(){
-    modal.classList.add("hidden");
-    overlay.classList.add("hidden");
-  })
+const closeModal = function (){
+  modal.classList.add("hidden");
+  overlay.classList.add("hidden");
+}
+
+for (let i = 0; i < btnsOpenModal.length; i++) {
+  btnsOpenModal[i].addEventListener("click", openModal);
+  btnCloseModal.addEventListener("click", closeModal);
+  overlay.addEventListener("click", closeModal);
+}
